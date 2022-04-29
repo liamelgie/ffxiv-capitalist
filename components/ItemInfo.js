@@ -1,4 +1,5 @@
 import useItemInfo from "./useItemInfo"
+import styles from "../styles/ItemInfo.module.css"
 
 const ItemInfo = (props) => {
     const { id } = props
@@ -16,11 +17,24 @@ const ItemInfo = (props) => {
         </div>
     )
     return (
-        <div>
-            <h2>Info</h2>
-            <h3>ID: { info.item.ID }</h3>
-            <h3>Name: { info.item.Name }</h3>
-            <h3>Description: { info.item.Description }</h3>
+        <div className={styles.itemInfoCard} style={{'width': '500px'}}>
+            <div className={styles.mainIconContainer}>
+                <img className={styles.mainIcon} src={`https://xivapi.com/${info.item.IconHD}`} />
+            </div>
+            <div className={styles.mainInfo}>
+                <h2>{ info.item.Name }</h2>
+                <p>{ info.item.Description }</p>
+            </div>
+            <div className={styles.miscInfo}>
+                <span>ID: { info.item.ID }</span>
+                <span>
+                    <img className={styles.catIcon} src={`https://xivapi.com/${info.item.ItemUICategory.IconHD}`} />
+                    { info.item.ItemUICategory.Name }
+                </span>
+                <span>
+                    { info.item.PriceLow }<img className="gilIcon" src='https://xivapi.com//i/065000/065002_hr1.png' />
+                </span>
+            </div>
         </div>
     )
 }

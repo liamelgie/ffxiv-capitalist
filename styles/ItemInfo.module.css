@@ -1,0 +1,38 @@
+.itemInfoCard {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr;
+    grid-template-rows: 1fr 2fr 1fr;
+}
+
+.mainIconContainer {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    place-self: center;
+}
+
+.mainIcon {
+    height: 50%;
+}
+
+.mainInfo {
+    grid-column: 2 / span 4;
+    grid-row: 1 / 3;
+    padding-left: 25px;
+}
+
+.catIcon {
+    height: 20px;
+    padding-right: 5px;
+    position: relative;
+    top: 3px;
+}
+
+.miscInfo {
+    grid-column: 1 / span 4;
+    grid-row: 3;
+}
+
+.miscInfo span {
+    display: inline-block;
+    margin: 10px;
+}
