@@ -1,4 +1,5 @@
 import useItemInfo from "./useItemInfo"
+import GilIcon from "./GilIcon"
 import styles from "../styles/ItemInfo.module.css"
 
 const ItemInfo = (props) => {
@@ -19,7 +20,7 @@ const ItemInfo = (props) => {
     return (
         <div className={styles.itemInfoCard} style={{'width': '500px'}}>
             <div className={styles.mainIconContainer}>
-                <img className={styles.mainIcon} src={`https://xivapi.com/${info.item.IconHD}`} />
+                <img alt={`${info.item.Name} icon`} className={styles.mainIcon} src={`https://xivapi.com/${info.item.IconHD}`} />
             </div>
             <div className={styles.mainInfo}>
                 <h2>{ info.item.Name }</h2>
@@ -28,11 +29,11 @@ const ItemInfo = (props) => {
             <div className={styles.miscInfo}>
                 <span>ID: { info.item.ID }</span>
                 <span>
-                    <img className={styles.catIcon} src={`https://xivapi.com/${info.item.ItemUICategory.IconHD}`} />
+                    <img alt={`${info.item.ItemUICategory.Name} icon`} className={styles.catIcon} src={`https://xivapi.com/${info.item.ItemUICategory.IconHD}`} />
                     { info.item.ItemUICategory.Name }
                 </span>
                 <span>
-                    { info.item.PriceLow }<img className="gilIcon" src='https://xivapi.com//i/065000/065002_hr1.png' />
+                    { info.item.PriceLow }<GilIcon />
                 </span>
             </div>
         </div>
