@@ -33,7 +33,7 @@ const ItemInfo = (props) => {
                     { info.item.ItemUICategory.Name }
                 </span>
                 <span>
-                    { info.item.PriceLow }<GilIcon />
+                    { info.item.PriceLow }<GilIcon height={20} width={20} />
                 </span>
             </div>
         </div>
