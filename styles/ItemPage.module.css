@@ -1,0 +1,43 @@
+.content {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.topLevel {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    place-items: center;
+    gap: 0 30px;
+}
+
+.detailContainer {
+    width: 100%;
+}
+
+.detailSubGroup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 30px;
+}
+
+.detailSubGroupHeading {
+    grid-column: 1 / span 2;
+}
+
+@media (max-width: 950px) {
+    .topLevel {
+        grid-template-columns: 1fr;
+        gap: 0px;
+    }
+}
+
+@media (max-width: 1250px) {
+
+    .detailSubGroup {
+      grid-template-columns: 1fr;
+    }
+
+    .detailSubGroupHeading {
+        grid-column: 1;
+    }
+}

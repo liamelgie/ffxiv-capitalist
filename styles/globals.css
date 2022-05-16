@@ -14,3 +14,15 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.gilIcon {
+  display: inline-block;
+  position: relative;
+  top: 4px;
+  left: 3px;
+}
+
+.hqIcon {
+  display: inline-block;
+  position: relative;
+}

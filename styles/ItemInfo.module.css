@@ -1,0 +1,55 @@
+.itemInfoCard {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr;
+    grid-template-rows: 1fr 2fr 1fr;
+}
+
+.itemName {
+    display: block;
+    grid-column: 1 / span 4;
+}
+
+.mainIconContainer {
+    grid-column: 1;
+    grid-row: 2;
+    place-self: center;
+}
+
+.mainIcon {
+    height: 50%;
+}
+
+.mainInfo {
+    grid-column: 2 / span 4;
+    grid-row: 2 / 3;
+    place-self: center;
+    padding: 0 25px;
+    font-size: 11pt;
+}
+
+.mainInfo h2 {
+    margin: 0;
+    padding: 0;
+}
+
+.catIcon {
+    height: 20px;
+    padding-right: 5px;
+    position: relative;
+    top: 3px;
+}
+
+.miscInfo {
+    grid-column: 1 / span 4;
+    grid-row: 3;
+}
+
+.miscInfo span {
+    display: inline-block;
+    margin: 10px;
+    font-size: 11pt;
+}
+
+.miscInfo span:first-child {
+    margin-left: 0px;
+}

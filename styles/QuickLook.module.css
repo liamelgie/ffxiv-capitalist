@@ -1,0 +1,32 @@
+.container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    grid-template-rows: 8fr 1fr;
+}
+
+.tableContainer {
+    width: 80%;
+    justify-self: right;
+}
+
+.tableContainer h3 {
+    margin-top: 0;
+}
+
+.potentialProfitContainer {
+    grid-column: 1 / span 2;
+    font-size: 11pt;
+    text-align: right;
+    padding: 5px;
+}
+
+@media (max-width: 950px) {
+    .tableContainer:first-child {
+        justify-self: left;
+    }
+
+    .tableContainer:last-child {
+        justify-self: right;
+    }
+}
