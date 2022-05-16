@@ -1,3 +1,4 @@
+import Head from "next/head"
 import useItemInfo from "./useItemInfo"
 import GilIcon from "./GilIcon"
 import styles from "../styles/ItemInfo.module.css"
@@ -22,6 +23,9 @@ const ItemInfo = (props) => {
     )
     return (
         <div className={styles.itemInfoCard}>
+            <Head>
+                <title>{info.item.Name}</title>
+            </Head>
             <h2 className={styles.itemName}>{ info.item.Name }</h2>
             <div className={styles.mainIconContainer}>
                 <img alt={`${info.item.Name} icon`} className={styles.mainIcon} src={`https://xivapi.com/${info.item.IconHD}`} />
