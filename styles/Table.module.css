@@ -1,0 +1,50 @@
+.hqColumn {
+    width: 40px;
+    text-align: center !important;
+}
+
+.tablePlaceholder {
+    border-collapse: collapse;
+    max-height: 500px;
+    width: 100%;
+    margin: 30px auto;
+}
+
+.tablePlaceholder th {
+    padding: 0 8px 5px;
+    text-align: center;
+    border-bottom: 1px solid black;
+    font-size: 10pt;
+}
+
+.tablePlaceholder td {
+    padding: 10px 5px;
+    text-align: right;
+    border: 1px solid lightgray;
+    font-size: 10pt;
+}
+
+.tablePlaceholder span, .tablePlaceholderCondensed span {
+    background-color: rgb(231, 228, 228);
+    color: rgb(231, 228, 228);
+}
+
+.tablePlaceholderCondensed {
+    border-collapse: collapse;
+    max-height: 500px;
+    width: 100%;
+}
+
+.tablePlaceholderCondensed th {
+    padding: 0 8px 5px;
+    text-align: center;
+    border-bottom: 1px solid black;
+    font-size: 10pt;
+}
+
+.tablePlaceholderCondensed td {
+    padding: 10px 5px;
+    text-align: right;
+    border: 1px solid lightgray;
+    font-size: 10pt;
+}
