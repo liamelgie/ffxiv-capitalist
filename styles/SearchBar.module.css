@@ -1,14 +1,16 @@
 .container {
-    display: inline-block;
+    display: block;
+    align-self: center;
 }
 
 .searchInput {
-    width: 300px;
+    display: block;
+    width: var(--search-width);
     padding: 10px;
 }
 
 .searchBox {
-    width: 300px;
+    width: var(--search-width);
     min-height: 75px;
     position: absolute;
     border: 1px solid black;

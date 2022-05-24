@@ -1,0 +1,23 @@
+.header {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.leftSideCont {
+  display: flex;
+  width: 60%;
+}
+
+.logo {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.navigation {
+  display: inline-block;
+  align-self: left;
+}
+
+.navigation {
+    padding: 0 30px;
+}
