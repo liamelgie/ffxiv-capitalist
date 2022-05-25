@@ -7,8 +7,7 @@ import SalesTablePlaceholder from './SalesTablePlaceholder'
 var relativeTime = require('dayjs/plugin/relativeTime')
 dayjs.extend(relativeTime)
 
-const SalesTable = (props) => {
-    const { id, world, limit, crossWorld, hq } = props
+const SalesTable = ({ id, world, limit, crossWorld, hq }) => {
     const { data, isLoading, isError } = useSalesData(id, world)
     if (isError) return (
         <div>

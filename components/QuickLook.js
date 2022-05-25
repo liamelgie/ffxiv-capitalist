@@ -4,8 +4,7 @@ import ListingTablePlaceholder from "./ListingTablePlaceholder"
 import GilIcon from "./GilIcon"
 import styles from '../styles/QuickLook.module.css'
 
-const QuickLook = (props) => {
-    const { id, world, hq } = props
+const QuickLook = ({ id, world, hq }) => {
     const { data, isLoading, isError } = useListingData(id, world)
     if (isError) return (
         <div>

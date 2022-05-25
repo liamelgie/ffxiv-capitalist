@@ -1,7 +1,6 @@
 import styles from '../styles/Table.module.css'
 
-const ListingTablePlaceholder = (props) => {
-    const { limit, crossWorld, condensed } = props
+const ListingTablePlaceholder = ({ limit, crossWorld, condensed }) => {
     const dummyRows = [...Array(limit).keys()].map((d, i) => {
         return (
             <tr key={i}>

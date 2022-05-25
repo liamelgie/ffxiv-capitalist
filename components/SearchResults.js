@@ -3,8 +3,7 @@ import classNames from 'classnames'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const SearchResults = (props) => {
-    const { data, isLoading, isError, isSearchFocused, setSearchFocused} = props
+const SearchResults = ({ data, isLoading, isError, isSearchFocused, setSearchFocused}) => {
     if (isLoading) {
         return (
             <div className={styles.searchBox}>

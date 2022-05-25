@@ -4,8 +4,7 @@ import GilIcon from './GilIcon'
 import HQIcon from './HQIcon'
 import ListingTablePlaceholder from './ListingTablePlaceholder'
 
-const ListingTable = (props) => {
-    const { id, world, limit, crossWorld, hq } = props
+const ListingTable = ({ id, world, limit, crossWorld, hq }) => {
     const { data, isLoading, isError } = useListingData(id, world)
     if (isError) return (
         <div>
