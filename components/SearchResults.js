@@ -20,17 +20,17 @@ const SearchResults = ({ data, isLoading, isError, isSearchFocused, setSearchFoc
             </div>        
         )
     }
-    let results = data.results.map((result, i) => 
-        <div className={styles.searchResult} key={i}>
-            <img className={styles.resultIcon} src={`https://xivapi.com/${result.Icon}`} />
-            <Link href={`/item/${result.ID}`} prefetch={false}><a className={styles.resultName} onClick={() => setSearchFocused(false)}>{result.Name}</a></Link>
-            <div className={styles.resultMisc}>{result.ID}</div>
-        </div>
-    )
+
     return (
         <div className={classNames(styles.searchBox, { [styles.hidden]: !isSearchFocused } )}>
-            { results.length > 0 && results }
-            { results.length === 0 && <div className={styles.loaderContainer}> {'No results'} </div>}
+            {results.length === 0 && <div className={styles.loaderContainer}> {'No results'} </div>}
+            {data.results.map((result) => (
+                <div className={styles.searchResult} key={result.ID}>
+                    <img className={styles.resultIcon} src={`https://xivapi.com/${result.Icon}`} />
+                    <Link href={`/item/${result.ID}`} prefetch={false}><a className={styles.resultName} onClick={() => setSearchFocused(false)}>{result.Name}</a></Link>
+                    <div className={styles.resultMisc}>{result.ID}</div>
+                </div>
+            ))}
         </div>
     )
 }
