@@ -29,7 +29,7 @@ const SearchResults = ({ data, isLoading, isError, isSearchFocused, setSearchFoc
     )
     return (
         <div className={classNames(styles.searchBox, { [styles.hidden]: !isSearchFocused } )}>
-            { results.length > 1 && results }
+            { results.length > 0 && results }
             { results.length === 0 && <div className={styles.loaderContainer}> {'No results'} </div>}
         </div>
     )
