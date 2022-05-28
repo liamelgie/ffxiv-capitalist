@@ -27,7 +27,7 @@ const ListingTableCondensed = ({ id, world, limit, crossWorld, hq }) => {
                 <td>{Number(listing.pricePerUnit).toLocaleString('en-US')}</td>
                 <td style={{textAlign: 'center'}}>{listing.quantity}</td>
                 <td>{Number(listing.total).toLocaleString('en-US')}</td>
-                {props.crossWorld && <td>{listing.worldName}</td>}
+                {crossWorld && <td>{listing.worldName}</td>}
             </tr>
         )
     }
