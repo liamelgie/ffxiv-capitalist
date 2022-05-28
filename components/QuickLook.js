@@ -26,7 +26,6 @@ const QuickLook = ({ id, world, hq }) => {
             </div>
         </div>
     )
-    const potentialProfit = data.local.cheapest - data.cross.cheapest
     return (
         <div className={styles.container}>
             <div className={styles.tableContainer}>
@@ -38,7 +37,13 @@ const QuickLook = ({ id, world, hq }) => {
                 <ListingTableCondensed id={id} world={world} limit={5} crossWorld={true} hq={hq} />
             </div>
             <div className={styles.potentialProfitContainer}>
-                <span>Potential Profit: { Number(potentialProfit).toLocaleString('en-US') }<GilIcon height={20} width={20}/></span>
+                <span>Potential Profit: 
+                    {hq
+                        ? data.local && Number(data.local.cheapestHQ - data.cross.cheapestHQ).toLocaleString('en-US') 
+                        : data.local && Number(data.local.cheapest - data.cross.cheapest).toLocaleString('en-US') 
+                    }
+                    <GilIcon height={20} width={20}/>
+                </span>
             </div>
         </div>
     )
