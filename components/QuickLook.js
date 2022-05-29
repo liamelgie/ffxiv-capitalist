@@ -1,4 +1,4 @@
-import useListingData from "./useListingData"
+import useListingData from "../hooks/useListingData"
 import ListingTableCondensed from "./ListingTableCondensed"
 import ListingTablePlaceholder from "./ListingTablePlaceholder"
 import GilIcon from "./GilIcon"

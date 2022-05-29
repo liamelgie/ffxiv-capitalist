@@ -1,5 +1,5 @@
 import styles from '../styles/Table.module.css'
-import useListingData from './useListingData'
+import useListingData from '../hooks/useListingData'
 import GilIcon from './GilIcon'
 import HQIcon from './HQIcon'
 import ListingTablePlaceholder from './ListingTablePlaceholder'

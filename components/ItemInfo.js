@@ -1,5 +1,5 @@
 import Head from "next/head"
-import useItemInfo from "./useItemInfo"
+import useItemInfo from "../hooks/useItemInfo"
 import GilIcon from "./GilIcon"
 import styles from "../styles/ItemInfo.module.css"
 

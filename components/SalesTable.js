@@ -1,5 +1,5 @@
 import styles from '../styles/Table.module.css'
-import useSalesData from './useSalesData'
+import useSalesData from '../hooks/useSalesData'
 import GilIcon from './GilIcon'
 import HQIcon from './HQIcon'
 import dayjs from 'dayjs'

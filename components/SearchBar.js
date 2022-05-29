@@ -1,7 +1,7 @@
 import { useState, useCallback, useRef } from 'react'
 import { debounce } from "lodash"
 import styles from '../styles/SearchBar.module.css'
-import useSearchData from './useSearchData'
+import useSearchData from '../hooks/useSearchData'
 import SearchResults from './SearchResults'
 import useOnClickOutside from '../hooks/useOnClickOutside'
 
