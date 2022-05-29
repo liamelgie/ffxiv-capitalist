@@ -13,13 +13,13 @@ export default async function handler(req, res) {
         const local = {
             worldName: capitalisedLocalWorldName,
             cheapest: sortedListings[capitalisedLocalWorldName] ? sortedListings[capitalisedLocalWorldName][0].pricePerUnit : 0,
-            cheapestHQ: sortedListings[capitalisedLocalWorldName] ? sortedListings[capitalisedLocalWorldName].filter((listing) => listing.hq)[0].pricePerUnit : 0,
+            cheapestHQ: sortedListings[capitalisedLocalWorldName] ? sortedListings[capitalisedLocalWorldName].filter((listing) => listing.hq) > 0 ? sortedListings[capitalisedLocalWorldName].filter((listing) => listing.hq)[0].pricePerUnit : 0 : 0,
             listings: sortedListings[capitalisedLocalWorldName] ? sortedListings[capitalisedLocalWorldName] : []
         }
         const cross = {
             dcName: data.dcName,
             cheapest: data.listings[0].pricePerUnit,
-            cheapestHQ: data.listings.filter((listing) => listing.hq) ? data.listings.filter((listing) => listing.hq)[0].pricePerUnit : 0,
+            cheapestHQ: data.listings.filter((listing) => listing.hq) > 0 ? data.listings.filter((listing) => listing.hq)[0].pricePerUnit : 0,
             listings: data.listings
         }
         return res.status(200).json({ sorted: sortedListings, local, cross })
