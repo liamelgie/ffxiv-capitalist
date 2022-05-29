@@ -23,7 +23,7 @@ const SearchResults = ({ data, isLoading, isError, isSearchFocused, setSearchFoc
 
     return (
         <div className={classNames(styles.searchBox, { [styles.hidden]: !isSearchFocused } )}>
-            {results.length === 0 && <div className={styles.loaderContainer}> {'No results'} </div>}
+            {data.results.length === 0 && <div className={styles.loaderContainer}> {'No results'} </div>}
             {data.results.map((result) => (
                 <div className={styles.searchResult} key={result.ID}>
                     <img className={styles.resultIcon} src={`https://xivapi.com/${result.Icon}`} />
