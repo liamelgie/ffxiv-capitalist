@@ -4,14 +4,17 @@ import GilIcon from './GilIcon'
 import HQIcon from './HQIcon'
 import ListingTablePlaceholder from './ListingTablePlaceholder'
 
-const ListingTable = ({ id, world, limit, crossWorld, hq }) => {
+const ListingTable = ({ id, world, limit, crossWorld, hq, setIsHQOnly }) => {
     const { data, isLoading, isError } = useListingData(id, world)
     if (isError) return <div><div>Failed to load listings</div> </div>
     if (isLoading) return <ListingTablePlaceholder limit={limit} crossWorld={crossWorld} />
     let listings = crossWorld ? data.cross.listings : data.local.listings
     if (hq) {
         const hqListings = listings.filter(listing => listing.hq === true) // Filter out non-HQ listings if specified
-        if (hqListings.length > 0) listings = hqListings // If item has no hq listings, return the original array
+        if (hqListings.length > 0) {
+            listings = hqListings // If item has no hq listings, return the original array
+            setIsHQOnly(false)
+        }
     }
     return (
         <table className={styles.table}>

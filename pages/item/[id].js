@@ -27,7 +27,7 @@ const Item = () => {
               <h2 className={styles.detailSubGroupHeading}>Current Listings</h2>
               <div>
                 <h3>{`${worldName[0].toUpperCase()}${worldName.slice(1)}`}</h3>
-                <ListingTable crossWorld={false} id={id} world={worldName} limit={15} hq={isHQOnly} />
+                <ListingTable crossWorld={false} id={id} world={worldName} limit={15} hq={isHQOnly} setIsHQOnly={setIsHQOnly}/>
               </div>
               <div>
                 <h3>Cross World</h3>
