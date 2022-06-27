@@ -11,38 +11,37 @@ const Item = () => {
   const router = useRouter()
   const { id } = router.query
   const [ worldName, setWorldName ] = useState('cerberus')
-  const [ isHQOnly, setIsHQOnly ] = useState(true)
-
+  const [ isHQOnlyFilter, setIsHQOnlyFilter ] = useState(true)
   return (
       <div>
         <Header />
         <div className={styles.content}>
           <div className={styles.topLevel}>
             <ItemInfo id={id} />
-            <QuickLook id={id} world={worldName} hq={isHQOnly}/>
+            <QuickLook id={id} world={worldName} hq={isHQOnlyFilter}/>
           </div>
           <div className={styles.detailContainer}>
-            HQ only: <button onClick={() => setIsHQOnly(!isHQOnly)}>{ isHQOnly ? 'On' : 'Off'}</button>
+            <button onClick={() => setIsHQOnlyFilter(!isHQOnlyFilter)}>{ isHQOnlyFilter ? 'HQ Only' : 'HQ and NQ'}</button>
             <div className={styles.detailSubGroup}>
               <h2 className={styles.detailSubGroupHeading}>Current Listings</h2>
               <div>
                 <h3>{`${worldName[0].toUpperCase()}${worldName.slice(1)}`}</h3>
-                <ListingTable crossWorld={false} id={id} world={worldName} limit={15} hq={isHQOnly} setIsHQOnly={setIsHQOnly}/>
+                <ListingTable crossWorld={false} id={id} world={worldName} limit={15} hq={isHQOnlyFilter} setIsHQOnlyFilter={setIsHQOnlyFilter}/>
               </div>
               <div>
                 <h3>Cross World</h3>
-                <ListingTable crossWorld={true} id={id} world={worldName} limit={15} hq={isHQOnly} />
+                <ListingTable crossWorld={true} id={id} world={worldName} limit={15} hq={isHQOnlyFilter} setIsHQOnlyFilter={setIsHQOnlyFilter}/>
               </div>
             </div>
             <div className={styles.detailSubGroup}>
             <h2 className={styles.detailSubGroupHeading}>Sales History</h2>
               <div>
                 <h3>{`${worldName[0].toUpperCase()}${worldName.slice(1)}`}</h3>
-                <SalesTable crossWorld={false} id={id} world={worldName} limit={15} hq={isHQOnly} />
+                <SalesTable crossWorld={false} id={id} world={worldName} limit={15} hq={isHQOnlyFilter} />
               </div>
               <div>
                 <h3>Cross World</h3>
-                <SalesTable crossWorld={true} id={id} world={worldName} limit={15} hq={isHQOnly} />
+                <SalesTable crossWorld={true} id={id} world={worldName} limit={15} hq={isHQOnlyFilter} />
               </div>
             </div>
           </div>

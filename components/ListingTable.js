@@ -4,7 +4,7 @@ import GilIcon from './GilIcon'
 import HQIcon from './HQIcon'
 import ListingTablePlaceholder from './ListingTablePlaceholder'
 
-const ListingTable = ({ id, world, limit, crossWorld, hq, setIsHQOnly }) => {
+const ListingTable = ({ id, world, limit, crossWorld, hq, setIsHQOnlyFilter }) => {
     const { data, isLoading, isError } = useListingData(id, world)
     if (isError) return <div><div>Failed to load listings</div> </div>
     if (isLoading) return <ListingTablePlaceholder limit={limit} crossWorld={crossWorld} />
