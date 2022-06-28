@@ -17,7 +17,7 @@
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "swr": "^1.3.0",
-    "universalis.js": "^1.0.4"
+    "universalis.js": "^1.0.7"
   },
   "devDependencies": {
     "eslint": "8.13.0",
