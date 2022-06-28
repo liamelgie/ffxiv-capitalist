@@ -13,7 +13,8 @@ const ListingTable = ({ id, world, limit, crossWorld, hq, setIsHQOnlyFilter }) =
         const hqListings = listings.filter(listing => listing.hq === true) // Filter out non-HQ listings if specified
         if (hqListings.length > 0) {
             listings = hqListings // If item has no hq listings, return the original array
-            setIsHQOnly(false)
+        } else {
+            setIsHQOnlyFilter(false)
         }
     }
     return (
