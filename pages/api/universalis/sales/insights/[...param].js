@@ -60,11 +60,29 @@ export default async function handler(req, res) {
         return res.status(200).json({ 
             local: { 
                 averagePrice: { ...localAverages },
-                averageSalesPerDay: await calcAverageSalesPerDay(localSales)
+                stackSizeHistogram: {
+                    regular: localSales.stackSizeHistogram,
+                    nq: localSales.stackSizeHistogramNQ,
+                    hq: localSales.stackSizeHistogramHQ
+                },
+                saleVelocity: {
+                    regular: localSales.regularSaleVelocity,
+                    nq: localSales.nqSaleVelocity,
+                    hq: localSales.hqSaleVelocity
+                }
             }, 
             cross: { 
                 averagePrice: { ...crossAverages },
-                averageSalesPerDay: await calcAverageSalesPerDay(crossSales)
+                stackSizeHistogram: {
+                    regular: crossSales.stackSizeHistogram,
+                    nq: crossSales.stackSizeHistogramNQ,
+                    hq: crossSales.stackSizeHistogramHQ
+                },
+                saleVelocity: {
+                    regular: crossSales.regularSaleVelocity,
+                    nq: crossSales.nqSaleVelocity,
+                    hq: crossSales.hqSaleVelocity
+                }
             } 
         })
     } catch(error) {
