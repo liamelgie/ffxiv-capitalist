@@ -17,7 +17,7 @@ const Item = () => {
         <Header />
         <div className={styles.content}>
           <div className={styles.topLevel}>
-            <ItemInfo id={id} />
+            <ItemInfo id={id} world={worldName} />
             <QuickLook id={id} world={worldName} hq={isHQOnlyFilter}/>
           </div>
           <div className={styles.detailContainer}>
