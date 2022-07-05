@@ -1,0 +1,27 @@
+.insightsContainer {
+    display: flex;
+    gap: 10px;
+}
+
+.worldContainer {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr 2fr;
+}
+
+.worldContainer h2 {
+    grid-column: 1 / span 2;
+}
+
+.datapoints {
+    display: inline-block;
+}
+
+.datapointHeading {
+    text-align: center;
+}
+
+.datapointValue {
+    text-align: center;
+}
