@@ -41,27 +41,34 @@ const calcAverageSalesPerDay = async (salesData, timeframe) => {
         salesTotal += sales.length
     }
     const average = salesTotal / 7
-    return average
+    return average.toFixed(2)
 }
 
 export default async function handler(req, res) {
     const { param } = req.query
     if (!param[0] || !param[1]) return res.status(404)
+    const world = param[0]
+    const id = param[1]
+    const capitalisedLocalWorldName = `${world[0].toUpperCase()}${world.slice(1)}`
     const uni = new Universalis()
-    const dataCenter = await findDataCenter(param[0])
+    const dataCenter = await findDataCenter(world)
     const previousDaysLimit = 7
     try {
-        const localSales = await uni.getSales(param[0], param[1])
-        const crossSales = await uni.getSales(dataCenter, param[1])
+        const listingData = await uni.getListings(dataCenter, id)
+        const sortedListings = uni.sortListingsByWorld(await listingData.listings)
+        const localSales = await uni.getSales(world, id)
+        const crossSales = await uni.getSales(dataCenter, id)
         const localAverages = calcAverageSalePrice(getSalesWithinTimeframe(localSales, previousDaysLimit))
         const crossAverages = calcAverageSalePrice(getSalesWithinTimeframe(crossSales, previousDaysLimit))
         const localAverageSalesPerDay = await calcAverageSalesPerDay(localSales, previousDaysLimit)
         const crossAverageSalesPerDay = await calcAverageSalesPerDay(crossSales, previousDaysLimit)
         return res.status(200).json({ 
-            local: { 
+            local: {
+                worldName: capitalisedLocalWorldName, 
                 averagePrice: { ...localAverages },
                 averageSalesPerDay: localAverageSalesPerDay,
                 stackSizeHistogram: {
+                    mode: Number(Object.entries(localSales.stackSizeHistogram).sort(([,a], [,b]) => b - a)[0][0]),
                     regular: localSales.stackSizeHistogram,
                     nq: localSales.stackSizeHistogramNQ,
                     hq: localSales.stackSizeHistogramHQ
@@ -70,9 +77,22 @@ export default async function handler(req, res) {
                     regular: localSales.regularSaleVelocity,
                     nq: localSales.nqSaleVelocity,
                     hq: localSales.hqSaleVelocity
+                },
+                cheapest: {
+                    hq: {
+                        worldName: sortedListings[capitalisedLocalWorldName].filter((listing) => listing.hq) > 0 ? sortedListings[capitalisedLocalWorldName].filter((listing) => listing.hq)[0].worldName : 'N/A',
+                        price: sortedListings[capitalisedLocalWorldName].filter((listing) => listing.hq) > 0 
+                            ? sortedListings[capitalisedLocalWorldName].filter((listing) => listing.hq)[0].pricePerUnit 
+                            : 0
+                    },
+                    nq: {
+                        worldName: sortedListings[capitalisedLocalWorldName][0].worldName,
+                        price: sortedListings[capitalisedLocalWorldName][0].pricePerUnit
+                    }
                 }
             }, 
-            cross: { 
+            cross: {
+                dataCenterName: dataCenter,
                 averagePrice: { ...crossAverages },
                 averageSalesPerDay: crossAverageSalesPerDay,
                 stackSizeHistogram: {
@@ -84,6 +104,18 @@ export default async function handler(req, res) {
                     regular: crossSales.regularSaleVelocity,
                     nq: crossSales.nqSaleVelocity,
                     hq: crossSales.hqSaleVelocity
+                },
+                cheapest: {
+                    hq: {
+                        worldName: listingData.listings.filter((listing) => listing.hq) > 0 ? listingData.listings.filter((listing) => listing.hq)[0].worldName : 'N/A',
+                        price: listingData.listings.filter((listing) => listing.hq) > 0 
+                            ? listingData.listings.filter((listing) => listing.hq)[0].pricePerUnit 
+                            : 0
+                    },
+                    nq: {
+                        worldName: listingData.listings[0].worldName,
+                        price: listingData.listings[0].pricePerUnit
+                    }
                 }
             } 
         })
