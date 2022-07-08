@@ -87,7 +87,17 @@ const Insights = ({ id, world }) => {
                 <div className={styles.datapoints}>
                     <h3 className={styles.datapointHeading}>Potential Profit</h3>
                     <div className={styles.datapointValue}>
-                        {Number(
+                        {insights.local.cheapest.nq.price > 0 ? 
+                            Number(
+                                (insights.local.cheapest.hq.price > 0 
+                                    ? insights.local.cheapest.hq.price 
+                                    : insights.local.cheapest.nq.price) 
+                                - 
+                                (insights.cross.cheapest.hq.price > 0 
+                                    ? insights.cross.cheapest.hq.price 
+                                    : insights.cross.cheapest.nq.price)
+                            ).toLocaleString('en-US') 
+                        : Number(
                             (insights.cross.cheapest.hq.price > 0 
                                 ? insights.cross.cheapest.hq.price 
                                 : insights.cross.cheapest.nq.price)
@@ -95,7 +105,7 @@ const Insights = ({ id, world }) => {
                             (insights.local.cheapest.hq.price > 0 
                                 ? insights.local.cheapest.hq.price 
                                 : insights.local.cheapest.nq.price) 
-                        ).toLocaleString('en-US')}
+                        ).toLocaleString('en-US')  }
                         <GilIcon height={17} width={17}/>
                     </div>
                 </div>
