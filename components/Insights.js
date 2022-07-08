@@ -26,14 +26,14 @@ const Insights = ({ id, world }) => {
                     <h3 className={styles.datapointHeading}>Average Price (HQ)</h3>
                     <div className={styles.datapointValue}>
                         {Number(insights.local.averagePrice.hq).toLocaleString('en-US')}
-                        <GilIcon height={20} width={20}/>
+                        <GilIcon height={17} width={17}/>
                     </div>
                 </div>
                 <div className={styles.datapoints}>
                     <h3 className={styles.datapointHeading}>Average Price (NQ)</h3>
                     <div className={styles.datapointValue}>
                         {Number(insights.local.averagePrice.nq).toLocaleString('en-US')}
-                        <GilIcon height={20} width={20}/>
+                        <GilIcon height={17} width={17}/>
                     </div>
                 </div>
                 <div className={styles.datapoints}>
@@ -48,7 +48,7 @@ const Insights = ({ id, world }) => {
                         {Number(insights.local.cheapest.hq.price > 0 
                             ? insights.local.cheapest.hq.price 
                             : insights.local.cheapest.nq.price).toLocaleString('en-US')}
-                        <GilIcon height={20} width={20}/>
+                        <GilIcon height={17} width={17}/>
                     </div> 
                 </div>
             </div>
@@ -58,14 +58,14 @@ const Insights = ({ id, world }) => {
                     <h3 className={styles.datapointHeading}>Average Price (HQ)</h3>
                     <div className={styles.datapointValue}>
                         {Number(insights.cross.averagePrice.hq).toLocaleString('en-US')}
-                        <GilIcon height={20} width={20}/>
+                        <GilIcon height={17} width={17}/>
                     </div>
                 </div>
                 <div className={styles.datapoints}>
                     <h3 className={styles.datapointHeading}>Average Price (NQ)</h3>
                     <div className={styles.datapointValue}>
                         {Number(insights.cross.averagePrice.nq).toLocaleString('en-US')}
-                        <GilIcon height={20} width={20}/>
+                        <GilIcon height={17} width={17}/>
                     </div>
                 </div>
                 <div className={styles.datapoints}>
@@ -81,8 +81,23 @@ const Insights = ({ id, world }) => {
                         {Number(insights.cross.cheapest.hq.price > 0 
                             ? insights.cross.cheapest.hq.price 
                             : insights.cross.cheapest.nq.price).toLocaleString('en-US')}
-                        <GilIcon height={20} width={20}/>
+                        <GilIcon height={17} width={17}/>
                     </div> 
+                </div>
+                <div className={styles.datapoints}>
+                    <h3 className={styles.datapointHeading}>Potential Profit</h3>
+                    <div className={styles.datapointValue}>
+                        {Number(
+                            (insights.cross.cheapest.hq.price > 0 
+                                ? insights.cross.cheapest.hq.price 
+                                : insights.cross.cheapest.nq.price)
+                            -
+                            (insights.local.cheapest.hq.price > 0 
+                                ? insights.local.cheapest.hq.price 
+                                : insights.local.cheapest.nq.price) 
+                        ).toLocaleString('en-US')}
+                        <GilIcon height={17} width={17}/>
+                    </div>
                 </div>
             </div>
         </div>
