@@ -80,14 +80,16 @@ export default async function handler(req, res) {
                 },
                 cheapest: {
                     hq: {
-                        worldName: sortedListings[capitalisedLocalWorldName].filter((listing) => listing.hq) > 0 ? sortedListings[capitalisedLocalWorldName].filter((listing) => listing.hq)[0].worldName : 'N/A',
-                        price: sortedListings[capitalisedLocalWorldName].filter((listing) => listing.hq) > 0 
-                            ? sortedListings[capitalisedLocalWorldName].filter((listing) => listing.hq)[0].pricePerUnit 
+                        worldName: sortedListings[capitalisedLocalWorldName] ? sortedListings[capitalisedLocalWorldName].filter((listing) => listing.hq) > 0 ? sortedListings[capitalisedLocalWorldName].filter((listing) => listing.hq)[0].worldName : 'N/A' : 'N/A',
+                        price: sortedListings[capitalisedLocalWorldName] ? 
+                            sortedListings[capitalisedLocalWorldName].filter((listing) => listing.hq) > 0 
+                                ? sortedListings[capitalisedLocalWorldName].filter((listing) => listing.hq)[0].pricePerUnit 
+                                : 0
                             : 0
                     },
                     nq: {
-                        worldName: sortedListings[capitalisedLocalWorldName][0].worldName,
-                        price: sortedListings[capitalisedLocalWorldName][0].pricePerUnit
+                        worldName: sortedListings[capitalisedLocalWorldName] ? sortedListings[capitalisedLocalWorldName][0].worldName : 'N/A',
+                        price: sortedListings[capitalisedLocalWorldName] ? sortedListings[capitalisedLocalWorldName][0].pricePerUnit : 0
                     }
                 }
             }, 
