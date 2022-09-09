@@ -29,7 +29,8 @@ const SearchBar = () => {
             <input 
                 className={styles.searchInput}
                 type="text" 
-                value={localSearchValue} 
+                value={localSearchValue}
+                placeholder="Search"
                 onChange={(event) => {
                     setLocalSearchValue(event.target.value)
                     debounceOnChange(event.target.value)

@@ -6,7 +6,6 @@
 .topLevel {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    place-items: center;
     gap: 0 30px;
 }
 
