@@ -1,11 +1,10 @@
-import useListingData from "./useListingData"
+import useListingData from "../hooks/useListingData"
 import ListingTableCondensed from "./ListingTableCondensed"
 import ListingTablePlaceholder from "./ListingTablePlaceholder"
 import GilIcon from "./GilIcon"
 import styles from '../styles/QuickLook.module.css'
 
-const QuickLook = (props) => {
-    const { id, world, hq } = props
+const QuickLook = ({ id, world, hq }) => {
     const { data, isLoading, isError } = useListingData(id, world)
     if (isError) return (
         <div>
@@ -27,7 +26,6 @@ const QuickLook = (props) => {
             </div>
         </div>
     )
-    const potentialProfit = data.local.cheapest - data.cross.cheapest
     return (
         <div className={styles.container}>
             <div className={styles.tableContainer}>
@@ -39,7 +37,13 @@ const QuickLook = (props) => {
                 <ListingTableCondensed id={id} world={world} limit={5} crossWorld={true} hq={hq} />
             </div>
             <div className={styles.potentialProfitContainer}>
-                <span>Potential Profit: { Number(potentialProfit).toLocaleString('en-US') }<GilIcon height={20} width={20}/></span>
+                <span>Potential Profit:&nbsp; 
+                    {hq
+                        ? data.local && Number(data.local.cheapestHQ - data.cross.cheapestHQ).toLocaleString('en-US') 
+                        : data.local && Number(data.local.cheapest - data.cross.cheapest).toLocaleString('en-US') 
+                    }
+                    <GilIcon height={20} width={20}/>
+                </span>
             </div>
         </div>
     )

@@ -1,5 +1,5 @@
 import styles from '../styles/Table.module.css'
-import useSalesData from './useSalesData'
+import useSalesData from '../hooks/useSalesData'
 import GilIcon from './GilIcon'
 import HQIcon from './HQIcon'
 import dayjs from 'dayjs'
@@ -7,8 +7,7 @@ import SalesTablePlaceholder from './SalesTablePlaceholder'
 var relativeTime = require('dayjs/plugin/relativeTime')
 dayjs.extend(relativeTime)
 
-const SalesTable = (props) => {
-    const { id, world, limit, crossWorld, hq } = props
+const SalesTable = ({ id, world, limit, crossWorld, hq }) => {
     const { data, isLoading, isError } = useSalesData(id, world)
     if (isError) return (
         <div>

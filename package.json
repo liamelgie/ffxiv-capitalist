@@ -10,12 +10,14 @@
   },
   "dependencies": {
     "@xivapi/js": "^0.4.0",
+    "classnames": "^2.3.1",
     "dayjs": "^1.11.2",
+    "lodash": "^4.17.21",
     "next": "12.1.5",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "swr": "^1.3.0",
-    "universalis.js": "^1.0.4"
+    "universalis.js": "^1.0.7"
   },
   "devDependencies": {
     "eslint": "8.13.0",

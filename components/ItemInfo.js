@@ -1,10 +1,9 @@
 import Head from "next/head"
-import useItemInfo from "./useItemInfo"
+import useItemInfo from "../hooks/useItemInfo"
 import GilIcon from "./GilIcon"
 import styles from "../styles/ItemInfo.module.css"
 
-const ItemInfo = (props) => {
-    const { id } = props
+const ItemInfo = ({ id }) => {
     const { info, isLoading, isError } = useItemInfo(id)
     if (isError) return (
         <div>
