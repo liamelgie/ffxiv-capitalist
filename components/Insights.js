@@ -1,4 +1,5 @@
 import Head from "next/head"
+import Image from "next/image"
 import useInsights from "../hooks/useInsights"
 import GilIcon from "./GilIcon"
 import styles from "../styles/Insights.module.css"
@@ -14,8 +15,10 @@ const Insights = ({ id, world }) => {
         </div>
     )
     if (isLoading) return (
-        <div>
-            <div>Getting item info...</div>
+        <div className={styles.loadingContainer}>
+            <div className={styles.loadingSpinner}>
+                <Image className={styles.loading} src={"/loading.gif"} height={10} width={30} alt="loading"/>
+            </div>
         </div>
     )
     return (

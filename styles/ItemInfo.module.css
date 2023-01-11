@@ -53,3 +53,18 @@
 .miscInfo span:first-child {
     margin-left: 0px;
 }
+
+.loadingContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+        ". . ."
+        ". c ."
+        ". . .";
+}
+
+.loadingSpinner {
+    grid-area: c;
+    text-align: center;
+}

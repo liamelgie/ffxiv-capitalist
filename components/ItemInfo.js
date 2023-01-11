@@ -11,8 +11,8 @@ const ItemInfo = ({ id }) => {
         </div>
     )
     if (isLoading) return (
-        <div>
-            <div>Getting item info...</div>
+        <div className={styles.loadingContainer}>
+            <div className={styles.loadingSpinner}>o</div>
         </div>
     )
     if (info.item.Error) return (
