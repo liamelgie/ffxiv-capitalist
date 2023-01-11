@@ -7,9 +7,9 @@ const Header = (props) => {
         <header className={styles.header}>
             <div className={styles.leftSideCont}>
                 <div className={styles.logo}>
-                    <h1>Rowena</h1>
+                    <Link href="/"><h1 style={{cursor: "pointer"}}>R</h1></Link>
                 </div>
-                <SearchBar />
+                {props.search && <SearchBar />}
             </div>
         </header>
     )
