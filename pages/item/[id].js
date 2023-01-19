@@ -14,7 +14,8 @@ const Item = () => {
   const [ isHQOnlyFilter, setIsHQOnlyFilter ] = useState(true)
   return (
       <div>
-        <Header />
+        <Header search={true} />
+        <main>
         <div className={styles.content}>
           <div className={styles.topLevel}>
             <ItemInfo id={id} world={worldName} />
@@ -46,6 +47,7 @@ const Item = () => {
             </div>
           </div>
         </div>
+        </main>
      </div>
     )
   }
