@@ -6,7 +6,7 @@ import useSearchData from '../hooks/useSearchData'
 import SearchResults from './SearchResults'
 import useOnClickOutside from '../hooks/useOnClickOutside'
 
-const SearchBar = () => {
+const SearchBar = (props) => {
     const router = new useRouter()
     const [ searchParam, setSearchParam ] = useState('')
     const [ localSearchValue, setLocalSearchValue ] = useState('')
@@ -28,6 +28,7 @@ const SearchBar = () => {
         <div className={styles.container} ref={focusRef}>
             <input 
                 className={styles.searchInput}
+                style={{width: `${props.width}`}}
                 type="text" 
                 value={localSearchValue}
                 placeholder="Search"
