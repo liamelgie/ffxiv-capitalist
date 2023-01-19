@@ -1,0 +1,52 @@
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.searchResult {
+    padding: 5px;
+    min-height: 45px;
+    display: grid;
+    grid-template-columns: 60px 3fr 2fr;
+    font-size: 10pt;
+}
+
+.searchResult:hover {
+    background: rgb(230, 230, 230);
+    transition: 0.1s ease-in;
+    cursor: pointer;
+}
+
+.resultIcon {
+    border: 0px solid black;
+    border-radius: 5px;
+    width: 40px;
+}
+
+.resultName {
+    display: flex;
+    align-items: center;
+}
+
+.resultMisc {
+    color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin-right: 5px;
+}
+
+.loadingContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+        ". . ."
+        ". c ."
+        ". . .";
+}
+
+.loadingSpinner {
+    grid-area: c;
+    text-align: center;
+}
